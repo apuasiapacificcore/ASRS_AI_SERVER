@@ -603,5 +603,6 @@ with gr.Blocks(title="AS/RS AI Service") as demo:
 
 # Launch with API enabled
 # demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
-demo.launch(server_name="0.0.0.0", server_port=7860, ssr_mode=False)
+# demo.launch(server_name="0.0.0.0", server_port=7860, ssr_mode=False)
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
 # demo.launch(server_name="0.0.0.0", server_port=7860)
