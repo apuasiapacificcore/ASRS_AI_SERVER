@@ -58,7 +58,7 @@ def get_event_history():
     return events
 
 
-def append_event(item, operation):
+def append_event(item, operation, slot):
     ref = db.reference("/ASRS/EventHistory")
     data = ref.get()
     if isinstance(data, list):
@@ -70,6 +70,7 @@ def append_event(item, operation):
     ref.child(next_key).set({
         "item": item,
         "operation": operation,
+        "slot": slot,
         "timestamp": datetime.now().isoformat()
     })
 
@@ -383,7 +384,7 @@ def store_item(item):
         return "Error: Rack is full, no empty slots"
 
     set_inventory_slot(slot, item)
-    append_event(item, "store")
+    append_event(item, "store", slot)
     command = f"{slot}_RETURN"
     set_ai_command(command)
 
@@ -415,7 +416,7 @@ def retrieve_item(item):
     slot = item_slots[0][0]
 
     set_inventory_slot(slot, "")
-    append_event(item, "retrieve")
+    append_event(item, "retrieve", slot)
     command = f"{slot}_TAKE"
     set_ai_command(command)
 
