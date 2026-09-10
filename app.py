@@ -39,7 +39,7 @@ max_steps = max(TRAVEL_STEPS.values())
 TRAVEL_COST = {s: v / max_steps for s, v in TRAVEL_STEPS.items()}
 
 # ── Weight penalty parameter (matches simulation Section 3.6) ──
-LAMBDA_W = 1.0
+LAMBDA_W = 2.0
 
 
 # ═══════════════════════════════════════════════════════════════
