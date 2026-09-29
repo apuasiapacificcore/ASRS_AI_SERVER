@@ -14,7 +14,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 # ── Firebase init ──
-DATABASE_URL = "https://asmr-3dd8a-default-rtdb.asia-southeast1.firebasedatabase.app"
+DATABASE_URL = "https://asrs-2020a-default-rtdb.asia-southeast1.firebasedatabase.app"
 
 if not firebase_admin._apps:
     try:
